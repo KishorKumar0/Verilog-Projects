@@ -1,10 +1,25 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: Kishor Kumar
+// 
+// Create Date: 04.11.2023 02:17:59
+// Design Name: 8-Bit Von Neumann Architecture CPU
+// Module Name: cpu
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
 
-// Define Timescale for the verilog file.
-`timescale 1ns/100ps
 
-
-//The main module of the code
-//All the seperate modules used in the code are linked together here
 module cpu(clk);
 
     // Port Declarations
@@ -185,7 +200,7 @@ module pcLoad(zero, negative, irbit4, irbit5, irbit6, irbit7, op2, phase, pcload
 endmodule
 
 // Flag for the RAM deciding whether to read or write from the RAM
-module readWrite(irbit4 , irbit5, irbit6, phase, readwrite);
+module readWrite(irbit4 , irbit5, irbit6,irbit7, phase, readwrite);
     input irbit4,irbit5,irbit6,irbit7;
     input [1:0] phase;
     output readwrite;
@@ -367,6 +382,7 @@ module ram (data,addr,we, clk,q);
 endmodule
 
 // Arithmetic Logic Unit
+// ===============================================  ALU begins  ===============================================
 
 //AND
 module bit_8_AND(aANDb,A,B);
@@ -456,4 +472,3 @@ module bit_8_ALU(
 	mux_2X1 i5(out_c,mux1,out_adder,in_operation[1]);
 	
 endmodule
-
