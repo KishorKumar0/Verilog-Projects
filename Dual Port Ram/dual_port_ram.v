@@ -34,7 +34,8 @@ module dual_port_ram(
         
 reg [7:0] mem [15:0];
 
-/*always @ (posedge clock)
+/* Design 1
+always @ (posedge clock)
 	begin
 		if (write_enable_A) 
 		begin
@@ -63,7 +64,7 @@ reg [7:0] mem [15:0];
 	
 endmodule*/
 
-
+//Design 2
 always @(posedge clock) begin
     if(write_enable_A) begin
         mem[address_A]<= data_in_A;
