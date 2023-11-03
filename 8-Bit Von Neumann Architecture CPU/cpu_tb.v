@@ -1,50 +1,37 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: Kishor Kumar
+// 
+// Create Date: 04.11.2023 02:20:01
+// Design Name: 8-Bit Von Neumann Architecture CPU
+// Module Name: cpu_tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
 
 
-/*
-                                         Variable Desciption Table
-======================================================================================================================
-|          Variables            |                          Description                                          |
------------------------------------------------------------------------------------------------------------------
-|            clk                |      functions as a clock                                                     |    
-|            zero               |      flag to check if the destination resistor is zero                        |
-|            negative           |      flag to check if the destination resistor is negative                    |                                                   |
-|            irload             |      acts as an enable for the instruction register                           |
-|            imload             |      acts as an enable for the immediate register                             |
-|            pcsel              |      select line for the PC mux                                               |
-|            pcload             |      acts as an enable for the PC register                                    |
-|            readwrite          |      input signal for the RAM deciding whether to read or write               |
-|            dwrite             |      input signal for the register file                                       |
-|                                                                                                               |    
-|            dregsel            |      select line for register file MUX deciding which register to write in    |
-|            sregsel            |      select line for register file MUX deciding which register to read from   |
-|            aluop              |      select line for the ALU deciding the operation to be done                |
-|            regsel             |      select line for MUX deciding what value to wrie in the register          |
-|            addrsel            |      select line for the MUX deciding the output of the program counter       |
-|            irvalue            |      value stored in the instrution resistor                                  |
-|            dbus               |      stores the value of the destination register                             |
-|            sbus               |      stores the value of the source register                                  |
-|            dval               |      input data to the register file                                          |
-|            pcin               |      input data to the PC register                                            |
-|            imm                |      immediate value                                                          |
-|            datain             |      instruction data recieved from the RAM                                   |
-|            aluout             |      output of the ALU                                                        |
-|            address            |      address of the next instruction                                          |    
------------------------------------------------------------------------------------------------------------------
-=================================================================================================================
-*/
-`timescale 1ns/100ps
+module cpu_tb();
 
-module Verilog_210_235();
-    reg clk;
+ reg clk;
 
     //Instantiate the CPU module
-    VerilogBM_210_235 CPU(clk);
+    cpu CPU(clk);
     //VerilogDM_210_235 CPU(clk);
 
     initial
         begin
-            $dumpfile("VerilogBM-210-235.vcd");
-            $dumpvars(0,Verilog_210_235);
+            $dumpfile("cpu_tb5.vcd");
+            $dumpvars(0,cpu_tb);
             $display("8-Bit Von Neumann CPU");
             $display("Loading from RAM.....");
             $display("Loading Complete - 100%");
